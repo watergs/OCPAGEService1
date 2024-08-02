@@ -24,9 +24,9 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
-        return userService.getUser(id).isPresent() ?
-                new ResponseEntity<>(userService.getUser(id).get(), new HttpHeaders(), HttpStatus.OK)
+    public ResponseEntity<User> getUser(@PathVariable Long userId) {
+        return userService.getUser(userId).isPresent() ?
+                new ResponseEntity<>(userService.getUser(userId).get(), new HttpHeaders(), HttpStatus.OK)
                 : new ResponseEntity<>( null, new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
